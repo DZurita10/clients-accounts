@@ -15,12 +15,11 @@ import reactor.core.scheduler.Schedulers;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Slf4j
 @Service
 @AllArgsConstructor
-public class MovementsService {
+public class MovementsService implements IMovementsService{
 
     private final MovementsRepository movementsRepository;
     private final AccountService accountService;

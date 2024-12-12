@@ -3,10 +3,12 @@ package com.dzurita.msv.accounts.customer;
 import com.dzurita.msv.accounts.dto.CustomerResponseDTO;
 import com.dzurita.msv.accounts.exception.NotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Component
 @AllArgsConstructor
 public class CustomerAccount {
@@ -20,6 +22,7 @@ public class CustomerAccount {
                 )
                 .retrieve()
                 .bodyToMono(CustomerResponseDTO.class)
+                .doOnError(error -> log.error(error.getMessage()))
                 .onErrorMap(error -> new NotFoundException("No existe el usuario con identification " + identification));
     }
 }

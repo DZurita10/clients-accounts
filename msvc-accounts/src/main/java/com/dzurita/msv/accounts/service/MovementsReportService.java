@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class MovementsReportService {
+public class MovementsReportService implements IMovementsReportService{
     private final MovementsRepository movementsRepository;
     private final AccountService accountService;
 

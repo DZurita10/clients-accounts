@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class AccountService {
+public class AccountService implements IAccountService {
     private final AccountRepository accountRepository;
     private final CustomerAccount customerAccount;
 
